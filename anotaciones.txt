@@ -1,0 +1,11 @@
+
+
+
+
+
+- SCOPE
+Scope o ambito de una variable representa el timepo de vida y uso de la variable 
+. Global Scope = todas las variable y expresiones estan definidas de manera global.
+. Function Scope = Todas las variables declaradas dentro de una funcion solo estan presentes dentro de ella.
+. Block Scope = let cuando un valor cambia y const cuando un valor es definido.
+. Module Scope = Se declara un script de tipo module con el atributo type="module" ( cuando se embebe un script JS ) las variables son limitadas al archivo en el que están declaradas.
