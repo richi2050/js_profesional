@@ -9,3 +9,62 @@ Scope o ambito de una variable representa el timepo de vida y uso de la variable
 . Function Scope = Todas las variables declaradas dentro de una funcion solo estan presentes dentro de ella.
 . Block Scope = let cuando un valor cambia y const cuando un valor es definido.
 . Module Scope = Se declara un script de tipo module con el atributo type="module" ( cuando se embebe un script JS ) las variables son limitadas al archivo en el que están declaradas.
+
+-CLOSURES
+Tecnica que nos permite establecer valores predefinidos y crear funciones para poder trabajar sobre ellos. 
+
+. IIFE = por sus siglas en ingles ( Immediately-invoked function expressions ) que en español seria Expresión de función ejecutada inmediatamente
+un ejemplo seria 
+(function (){
+    let color ="Rojo";
+    function printColor(){
+        console.log(color);
+    }
+
+    printColor();
+})();
+
+.  Funciones que regresan funciones.
+    function makeColorPrinter(color) {
+      let colorMessage = `The color is ${color}`;
+
+      return function() {
+          console.log(colorMessage);
+      };
+      }
+
+    let greenColorPrinter = makeColorPrinter('green');
+    console.log(greenColorPrinter());
+. variables Privadas
+    una variable no puede ser modificada,  solo con el llamdopn de funciones.
+
+    function makeCounter(n) {
+        let count = n;
+
+        return {
+          increase: function() {
+            count = count + 1;
+          },
+          decrease: function() {
+            count = count - 1;
+          },
+          getCount: function() {
+            return count;
+          }
+        };
+      }
+
+      let counter = makeCounter(7);
+
+      console.log("The count is:", counter.getCount());
+      counter.increase();
+      console.log("The count is:", counter.getCount());
+      counter.decrease();
+      counter.decrease();
+      counter.decrease();
+      counter.decrease();
+      console.log("The count is:", counter.getCount());
+
+      counter.count = 0;
+      console.log("The count is:", counter.getCount());
+
